@@ -1,5 +1,6 @@
 package com.rednavis.demo.kafka.messageprocessor.service;
 
+import javax.validation.Valid;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Processor;
@@ -15,7 +16,7 @@ public class CommentUpdateService {
 
   @StreamListener(Processor.INPUT)
   @SendTo(Processor.OUTPUT)
-  public ItemDto updateCommentWithRarity(ItemDto toUpdate) {
+  public ItemDto updateCommentWithRarity(@Valid ItemDto toUpdate) {
     String description = toUpdate.getDescription();
     if (toUpdate.getAmount() > 0 && toUpdate.getAmount() <= 10) {
       toUpdate.setDescription(description + "\nRare item");
