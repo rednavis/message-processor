@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.cloud.stream.test.binder.MessageCollector;
+import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.support.MethodArgumentNotValidException;
 import org.springframework.messaging.support.MessageBuilder;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rednavis.demo.kafka.messageprocessor.dto.ItemDto;
 
 @SpringBootTest
+@EmbeddedKafka
 class MessageProcessorIntegrationTest {
 
   @Autowired
